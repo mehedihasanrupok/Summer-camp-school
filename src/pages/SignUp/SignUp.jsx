@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const SignUp = () => {
 
@@ -95,7 +97,6 @@ return (
                         </div>
                     </form>
                     <p className='mx-auto mb-4'><small>Already have an account <Link to="/login">Login</Link></small></p>
-                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
