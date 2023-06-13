@@ -11,7 +11,7 @@ import img6 from '../../../../public/banner/6.jpg';
 const Banner = () => {
     return (
         <div>
-             <Carousel className='w-full h-20'>
+             <Carousel>
                 <div>
                     <img src={img1} />
                 </div>
