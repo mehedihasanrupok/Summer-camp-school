@@ -25,7 +25,7 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                form.reset('');
+                // form.reset('');
                 updateUserProfile(data.name, data.photoURL)
                 .then(() => {
                     console.log('User name and photo updated');

@@ -10,7 +10,7 @@ import img from '../../../public/cool-background.png'
 
 const Login = () => {
 
-    const [disabled, setDisabled] = useState(true);
+    const [disabled, setDisabled] = useState(false);
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();

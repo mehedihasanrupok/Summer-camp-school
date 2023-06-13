@@ -22,7 +22,7 @@ const NavBar = () => {
 
     return (
         <>
-            <div className="navbar fixed max-w-screen-xl z-10 bg-opacity-30 bg-black text-white">
+            <div className="navbar fixed max-w-screen-xl z-10 bg-opacity-30 text-blue">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,7 +41,7 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-end">
                     {user?.email ? <>
-                        <button className='w-10 h-10 rounded-full'><img title={user.displayName} src={user?.photoURL} alt="" /></button>
+                        <button className='w-10 h-16 rounded-full'><img className='bg-white m-4' title={user.displayName} src={user?.photoURL} alt="" /></button>
                         <button onClick={handleLogOut}>Log out</button>
                     </> :
                         <Link to='/login'>Login</Link>
