@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Fade } from "react-awesome-reveal";
 import 'animate.css';
+import img from '../../../public/cool-background.png'
 
 const Login = () => {
 
@@ -59,8 +60,8 @@ const Login = () => {
                 <title>Bistro Boss | Login</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col md:flex-row-reverse">
-                    <div className="text-center md:w-1/2 lg:text-left">
+                <div className="hero-content flex-col md:flex-row-reverse bg-[url(https://i.ibb.co/bmvDcHW/cool-background.png)]">
+                    <div className="text-center md:w-1/2 lg:text-left text-yellow-300">
                         <h1 className="text-5xl font-bold animate__animated animate__bounce animate__repeat-10">Login now!</h1>
                         <Fade cascade damping={0.5}>
                             <p className='mt-5'>Log Faster...</p>
