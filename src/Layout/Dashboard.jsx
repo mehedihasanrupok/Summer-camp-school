@@ -4,7 +4,9 @@ import { FaShoppingCart, FaWallet, FaCalendarAlt,FaFirstOrderAlt, FaHome, FaUten
 import { CiMenuBurger } from "react-icons/ci";
 
 const Dashboard = () => {
+    
     const isAdmin = true;
+
     return (
         <div className="drawer lg:drawer-open">
              <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
