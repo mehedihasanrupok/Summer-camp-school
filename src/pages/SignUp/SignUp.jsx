@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 const SignUp = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserData } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onSubmit = data => {
@@ -26,7 +26,7 @@ const SignUp = () => {
                     timer: 1500
                 })
                 // form.reset('');
-                updateUserProfile(data.name, data.photoURL)
+                updateUserData(data.name, data.photoURL)
                 .then(() => {
                     console.log('User name and photo updated');
                 })
