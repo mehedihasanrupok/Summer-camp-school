@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaShoppingCart, FaWallet, FaCalendarAlt,FaFirstOrderAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaFirstOrderAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
 import { CiMenuBurger } from "react-icons/ci";
 
 const Dashboard = () => {
-    
+
     const isAdmin = true;
+    const isInstructor = false;
 
     return (
         <div className="drawer lg:drawer-open">
-             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 <Outlet></Outlet>
@@ -21,27 +22,18 @@ const Dashboard = () => {
 
                     {
                         isAdmin ? <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/reservations"> <FaUtensils></FaUtensils> Add Items</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
-                            <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
-
-                        </> : <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
-                            <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
-                            <li>
-                                <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
-                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
-                                </NavLink>
-
-                            </li>
-                        </>
+                            <li><NavLink to="/dashboard/manage-class"><FaHome></FaHome> Manage Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/manage-user"> <FaUtensils></FaUtensils> Manage Users</NavLink></li>
+                        </> : (
+                            isInstructor ? <>
+                                <li><NavLink to="/dashboard/add-class"><FaHome></FaHome> Add a Class</NavLink></li>
+                                <li><NavLink to="/dashboard/my-class"> <FaUtensils></FaUtensils> My Classes</NavLink></li>
+                            </> : <>
+                                <li><NavLink to="/dashboard/selected-class"><FaHome></FaHome> Selected Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/enrolled-class"> <FaUtensils></FaUtensils> Enrolled Classes</NavLink></li>
+                            </>
+                        )
                     }
-
-
-
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                     <li><NavLink to="/menu"><CiMenuBurger></CiMenuBurger> Our Menu</NavLink></li>

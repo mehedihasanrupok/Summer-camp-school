@@ -13,7 +13,7 @@ import { ImSpinner10 } from 'react-icons/im';
 const Login = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { signIn,googleLog, loading } = useContext(AuthContext);
+    const { signIn, googleLog, loading } = useContext(AuthContext);
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -41,7 +41,14 @@ const Login = () => {
         googleLog()
             .then(result => {
                 console.log(result.user);
-                saveUser(result.user);
+                axios.post('http://localhost:5000/users', {
+                    email: result.user.email,
+                    name: result.user.displayName,
+                    image: result.user.photoURL,
+                })
+                    .then(data => {
+                        console.log(data.data);
+                    })
                 toast.success("Welcome Back!");
                 navigate(from, { replace: true });
             })

@@ -51,7 +51,14 @@ const SignUp = () => {
         googleLog()
             .then((result) => {
                 console.log(result.user);
-                saveUser(result.user);
+                axios.post('http://localhost:5000/users', {
+                    email: result.user.email,
+                    name: result.user.displayName,
+                    image: result.user.photoURL,
+                })
+                    .then(data => {
+                        console.log(data.data);
+                    })
                 toast.success("Welcome Back!");
                 navigate(from, { replace: true });
             })

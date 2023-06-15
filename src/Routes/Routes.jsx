@@ -31,7 +31,27 @@ import Dashboard from "../Layout/Dashboard";
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'manage-class',
+        },
+        {
+          path: 'manage-user',
+        },
+        {
+          path: 'add-class',
+        },
+        {
+          path: 'my-class',
+        },
+        {
+          path: 'selected-class',
+        },
+        {
+          path: 'enrolled-class',
+        }
+      ]
     }
     
   ]);
