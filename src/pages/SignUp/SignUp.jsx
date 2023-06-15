@@ -1,14 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
+import { ImSpinner10 } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const SignUp = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser, googleLog, updateUserData, logOut } = useContext(AuthContext);
+    const { createUser, googleLog, updateUserProfile, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const location = useLocation();
@@ -22,17 +25,26 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                updateUserData(data.name, data.photoURL)
+                updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        saveUser(result.user);
+                        axios.post('http://localhost:5000/users', {
+                            email: result.user.email,
+                            name: result.user.displayName,
+                            image: result.user.photoURL,
+                        })
+                            .then(data => {
+                                console.log(data.data);
+                            })
+
                         toast.success("User Created!");
                         reset();
                         logOut();
+
                     })
-                    .catch((err) => {
-                        console.log(err.message);
-                        toast.error(err.message);
-                    });
+                // .catch((err) => {
+                //     console.log(err.message);
+                //     toast.error(err.message);
+                // });
             });
     };
     const handleGoogleSignIn = () => {
