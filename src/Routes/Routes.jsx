@@ -7,6 +7,7 @@ import Error from "../pages/Error/Error";
 import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
+import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 
 
   export const router = createBrowserRouter([
@@ -35,9 +36,11 @@ import Dashboard from "../Layout/Dashboard";
       children: [
         {
           path: 'manage-class',
+          element:<ManageClass></ManageClass>
         },
         {
           path: 'manage-user',
+          element:<Mana
         },
         {
           path: 'add-class',
