@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { ImSpinner10 } from 'react-icons/im';
+import toast from 'react-hot-toast';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const AddClass = () => {
     const { user } = useAuth();
@@ -19,7 +19,7 @@ const AddClass = () => {
         formData.append('image', data.image[0]);
         setLoading(true);
         
-        fetch('https://api.imgbb.com/1/upload?key=75b285dffdcb7022c2a8a42ec594a8a0', {
+        fetch('https://api.imgbb.com/1/upload?key=fe06b37cc7127e489391118b241440cd', {
             method: 'POST',
             body: formData
         })
@@ -64,14 +64,14 @@ const AddClass = () => {
                                 Instructor Name
                             </label>
                             <input className="w-full px-4 py-3 text-gray-800 border border-indigo-300 focus:outline-indigo-500 
-                            rounded-md" {...register("name", { required: true })} name="name" id="name" type="text" defaultValue={user.displayName} readOnly />
+                            rounded-md" {...register("name", { required: true })} name="name" id="name" type="text" defaultValue={user?.displayName} readOnly />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="email" className="block text-gray-600">
                                 Instructor Email
                             </label>
                             <input className="w-full px-4 py-3 text-gray-800 border border-indigo-300 focus:outline-indigo-500 
-                            rounded-md" {...register("email", { required: true })} name="email" id="email" type="email" defaultValue={user.email} readOnly />
+                            rounded-md" {...register("email", { required: true })} name="email" id="email" type="email" defaultValue={user?.email} readOnly />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="classesName" className="block text-gray-600">

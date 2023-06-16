@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
-import useAuth from '../../../hooks/useAuth';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import MyDataRow from './MyDataRow';
 import UpdateModal from './UpdateModal';
 import toast from 'react-hot-toast';
+import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 const MyClass = () => {
     const { user } = useAuth();
@@ -30,7 +30,7 @@ const MyClass = () => {
     return (
         <>
             <Helmet>
-                <title>Sportify | My Classes</title>
+                <title>Root Academy | My Classes</title>
             </Helmet>
             <h3 className='text-center font-semibold text-3xl'>My Classes</h3>
             <div className="mx-auto px-4 sm:px-8">
