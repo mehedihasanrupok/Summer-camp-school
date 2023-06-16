@@ -13,6 +13,8 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import SelectedClass from "../pages/Dashboard/SelectedClass/SelectedClass";
 import EnrolledClass from "../pages/Dashboard/EnrolledClass/EnrolledClass";
+import Instructors from "../pages/Instructors/Instructors";
+import ClassesPage from "../pages/ClassesPage/ClassesPage";
 
 
   export const router = createBrowserRouter([
@@ -32,6 +34,14 @@ import EnrolledClass from "../pages/Dashboard/EnrolledClass/EnrolledClass";
         {
           path:'login',
           element: <Login></Login>
+        },
+        {
+          path:'instructors',
+          element: <Instructors></Instructors>
+        },
+        {
+          path:'classes',
+          element: <ClassesPage></ClassesPage>
         }
       ],
     },

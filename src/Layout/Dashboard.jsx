@@ -39,8 +39,8 @@ const Dashboard = () => {
                     }
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                    <li><NavLink to="/menu"><CiMenuBurger></CiMenuBurger> Our Menu</NavLink></li>
-                    <li><NavLink to="/order/salad"><FaFirstOrderAlt></FaFirstOrderAlt>Order Food</NavLink></li>
+                    <li><NavLink to="/menu"><CiMenuBurger></CiMenuBurger> Instructors</NavLink></li>
+                    <li><NavLink to="/order/salad"><FaFirstOrderAlt></FaFirstOrderAlt>Classes</NavLink></li>
                 </ul>
 
             </div>
