@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import SelectedDataRow from './SelectedDataRow';
+import Swal from 'sweetalert2';
 import useCart from '../../../hooks/useCart';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const SelectedClass = () => {
     const [cart, refetch] = useCart();
