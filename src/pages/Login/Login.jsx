@@ -62,7 +62,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Bistro Boss | Login</title>
+                <title>Root Academy | Login</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col md:flex-row-reverse bg-[url(https://i.ibb.co/bmvDcHW/cool-background.png)]">
